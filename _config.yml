@@ -90,17 +90,20 @@ pagination_dir: page
 # Include / Exclude file(s)
 ## include:/exclude: options only apply to the 'source/' folder
 include:
+  - .nojekyll
 exclude:
 ignore:
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: butterfly
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
+## 注意：源码在 main 分支，生成的静态页面发布到 gh-pages 分支，两者互不干扰
 deploy:
   type: git
   repo: git@github.com:yzh-mice/yzh-mice.github.io.git
-  branch: main
+  branch: gh-pages
+  ignore_hidden: false # 确保 .nojekyll 等隐藏文件也会被部署
